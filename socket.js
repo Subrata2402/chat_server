@@ -19,6 +19,11 @@ function setupSocket(server) {
       console.log(`User ${userId} registered with socket ID ${socket.id}`);
     });
 
+    socket.on('leave-chat', (userId) => {
+      delete users[userId];
+      console.log(`User ${userId} unregistered`);
+    });
+
     socket.on('private-message', (data) => {
       console.log('message', data);
       const socketId = users[data.receiverId];

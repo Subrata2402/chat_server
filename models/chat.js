@@ -7,12 +7,12 @@ const chatSchema = new mongoose.Schema({
   },
   senderId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Register',
     required: true
   },
   receiverId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Register',
     required: true
   },
   isRead: {

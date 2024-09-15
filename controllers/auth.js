@@ -56,6 +56,7 @@ const login = async (req, res) => {
     try {
         const username = req.body.userName;
         const password = req.body.password;
+        // console.log(username, password);
         let user = await Auth.findOne({ email: username });
         if (!user) {
             user = await Auth.findOne({ userName: username });

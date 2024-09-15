@@ -13,5 +13,7 @@ router.post('/auth/login', validate(authSchema.login), authController.login);
 
 // Chat routes
 router.post('/chat/add-chat-user', authenticate, chatController.addChatUser);
+router.post('/chat/add-chat-message', authenticate, chatController.addChatMessage);
+router.post('/chat/get-chat-messages', authenticate, chatController.getChatMessages);
 
 module.exports = router;
