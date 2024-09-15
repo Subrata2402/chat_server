@@ -47,7 +47,7 @@ const getChatList = async (req, res) => {
       }).sort({ createdAt: -1 }).limit(1);
 
       // Add the last message and unread count to the plain object
-      chatUser.message = message[0] || null;
+      chatUser.message = message[0] || "";
       chatUser.unread = await Chat.countDocuments({ senderId: user.chatUsers[i]._id, receiverId: req.user._id, read: false });
 
       // Add modified chat user data to array
