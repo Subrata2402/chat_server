@@ -22,6 +22,9 @@ const addChatUser = async (req, res) => {
     const user = await Auth.findOne({ _id: req.user._id });
     user.chatUsers.push(chatUser._id);
     await user.save();
+    const chatUser2 = await Auth.findOne({ _id: chatUser._id });
+    chatUser2.chatUsers.push(req.user._id);
+    await chatUser2.save();
     res.status(200).json({ success: true, message: "User added successfully" });
   } catch (error) {
     res.status(400).json({ success: false, message: "User addition failed", error: error });
