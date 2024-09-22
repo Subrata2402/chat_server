@@ -70,6 +70,7 @@ const addChatMessage = async (req, res) => {
       message: req.body.message,
       senderId: req.user._id,
       receiverId: req.body.receiverId,
+      isRead: false
     });
     await chatData.save();
     res.status(200).json({ success: true, message: "Chat message sent successfully" });
